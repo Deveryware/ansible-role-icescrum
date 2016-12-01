@@ -1,0 +1,10 @@
+---
+- name: Ensure icescrum group is present.
+  group: name="{{ icescrum_group }}" state=present
+
+- name: Ensure icescrum user is present.
+  user: name="{{ icescrum_user }}" group="{{ icescrum_group }}" state=present
+
+- include: tomcat7.yml
+- include: mysql.yml
+- include: installation_war.yml

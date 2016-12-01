@@ -1,0 +1,20 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Olivier Locard
+  description: Icescrum Installation
+  company: "Deveryware"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.9
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - icescrum
+    - development
+    - scrum

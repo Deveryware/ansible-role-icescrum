@@ -1,0 +1,23 @@
+---
+- name: Ensure icescrum.war is present.
+  stat: path="{{ icescrum_install_dir }}/icescrum.war"
+  register: icescrum_war
+
+- name: Ensure icescrum directory is present.
+  file:
+    path: "{{ icescrum_install_dir }}"
+    state: directory
+
+- name: Download icescrum.war.
+  get_url:
+    url: "{{ icescrum_war_url }}"
+    dest: "{{ icescrum_install_dir }}/icescrumPro.war"
+    mode: 0440
+  when: icescrum_war.stat.exists == false
+
+- name: Ensure icescrum ownership.
+  file:
+    path: "{{ icescrum_install_dir }}"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    recurse: yes

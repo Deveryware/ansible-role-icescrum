@@ -1,0 +1,14 @@
+- name: Mysql - Ensure database is created.
+  mysql_db:
+    name: "{{ icescrum_db_name }}"
+    encoding: utf8
+    collation: utf8_general_ci
+    state: present
+  register: db_created
+ 
+- name: Mysql - Ensure icescrum db user is present.
+  mysql_user:
+    name: "{{ icescrum_db_user }}"
+    password: "{{ icescrum_db_password }}"
+    priv: "{{ icescrum_db_name }}.*:ALL"
+    state: present

@@ -1,0 +1,13 @@
+---
+icescrum_jar_url: 'https://www.icescrum.com/downloads/icescrum.jar'
+icescrum_war_url: 'https://www.icescrum.com/downloads/icescrum.war'
+icescrum_install_dir: '/opt/icescrum'
+
+icescrum_user: 'icescrum'
+icescrum_group: "{{ icescrum_user }}"
+
+icescrum_db_name: 'icescrum'
+icescrum_db_user: 'icescrum'
+icescrum_db_password: 'ic3scrum'
+
+icescrum_tomcat_user: 'tomcat7'

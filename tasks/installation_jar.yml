@@ -1,0 +1,25 @@
+---
+- name: Ensure icescrum.jar is present.
+  stat: path="{{ icescrum_install_dir }}/icescrum.jar"
+  register: icescrum_jar
+
+- name: Ensure icescrum directory is present.
+  file:
+    path: "{{ icescrum_install_dir }}"
+    state: directory
+
+- name: Download icescrum.jar.
+  get_url:
+    url: "{{ icescrum_jar_url }}"
+    dest: "{{ icescrum_install_dir }}/icescrum.jar"
+  when: icescrum_jar.stat.exists == false
+
+- name: Ensure icescrum ownership.
+  file:
+    path: "{{ icescrum_install_dir }}"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    recurse: yes
+
+- name: Ensure icescrum is running.
+  shell: "java -Xmx512M -XX:MaxPermSize=256m -jar {{ icescrum_install_dir }}/icescrum.jar"
