@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+# https://www.icescrum.com/documentation/application-server/#application-server_2
+#
+CATALINA_OPTS="$CATALINA_OPTS -Dicescrum.log.dir={{ icescrum_log_dir }}"
+CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone=UTC"
+CATALINA_OPTS="$CATALINA_OPTS -Dicescrum_config_location={{ icescrum_install_dir }}/config.groovy"
+CATALINA_OPTS="$CATALINA_OPTS -Xmx512m -XX:MaxPermSize=256m"

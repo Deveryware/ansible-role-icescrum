@@ -5,6 +5,39 @@
 - name: Ensure icescrum user is present.
   user: name="{{ icescrum_user }}" group="{{ icescrum_group }}" state=present
 
-- include: tomcat7.yml
+- name: Ensure icescrum directory is present.
+  file:
+    path: "{{ icescrum_install_dir }}"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    state: directory
+
+- name: Ensure log directory is present.
+  file:
+    path: "{{ icescrum_log_dir }}"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0775
+    state: directory
+
+- name: Ensure server ID file is present.
+  copy:
+    dest: "{{ icescrum_install_dir }}/appID.txt"
+    content: "{{ icescrum_appID }}"
+  when: icescrum_appID is defined
+
+- name: Ensure config.groovy is present.
+  template:
+    src: 'config.groovy.j2'
+    dest: "{{ icescrum_install_dir }}/config.groovy"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0640
+  register: icescrum_config_groovy
+
 - include: mysql.yml
 - include: installation_war.yml
+- include: tomcat.yml
+
+- name: Ensure icescrum is started.
+  wait_for: path="{{ icescrum_log_dir }}/icescrum.log" delay=10 search_regex="Current version of Atmosphere"

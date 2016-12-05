@@ -2,12 +2,28 @@
 icescrum_jar_url: 'https://www.icescrum.com/downloads/icescrum.jar'
 icescrum_war_url: 'https://www.icescrum.com/downloads/icescrum.war'
 icescrum_install_dir: '/opt/icescrum'
+icescrum_log_dir: '/var/log/icescrum'
 
 icescrum_user: 'icescrum'
 icescrum_group: "{{ icescrum_user }}"
+icescrum_server: 'localhost'
+icescrum_port: 8080
+icescrum_scheme: 'http'
 
 icescrum_db_name: 'icescrum'
 icescrum_db_user: 'icescrum'
 icescrum_db_password: 'ic3scrum'
 
 icescrum_tomcat_user: 'tomcat7'
+icescrum_tomcat_base: '/var/lib/tomcat7'
+icescrum_tomcat_configure: True
+icescrum_tomcat_proxy_active: False
+icescrum_tomcat_proxy_server:
+icescrum_tomcat_proxy_port: "{{ icescrum_port }}"
+
+icescrum_mail_enabled: False
+icescrum_mail_host: "smtp.company.com"
+icescrum_mail_port: 465
+icescrum_mail_username: "username@company.com"
+icescrum_mail_password: "mypassword"
+icescrum_mail_auth: ''

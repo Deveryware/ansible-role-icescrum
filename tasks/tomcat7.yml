@@ -1,7 +1,0 @@
----
-- getent: database="passwd" key="{{ icescrum_tomcat_user }}"
-
-- name: Tomcat7 - Ensure tomcat-jdbc.jar is absent (see https://www.icescrum.com/documentation/application-server/#application-server_1).
-  file:
-    path: "{{ getent_passwd[icescrum_tomcat_user][4] }}/lib/tomcat-jdbc.jar"
-    state: absent

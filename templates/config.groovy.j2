@@ -1,0 +1,33 @@
+// {{ ansible_managed }}
+// https://www.icescrum.com/documentation/config-groovy-file/
+
+// Data Source
+dataSource.dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
+dataSource.driverClassName = "com.mysql.jdbc.Driver"
+dataSource.url = "jdbc:mysql://localhost:3306/icescrum?useUnicode=true&characterEncoding=utf8"
+dataSource.username = "{{icescrum_db_user}}"
+dataSource.password = "{{icescrum_db_password}}"
+
+// Technical Setings
+// Server URL
+grails.serverURL = "{{ icescrum_scheme }}://{{ icescrum_server }}{% if icescrum_port is defined %}:{{ icescrum_port }}{% endif%}"
+// Logging
+icescrum.debug.enable = false
+icescrum.securitydebug.enable = false
+// Working Directory
+icescrum.baseDir = "{{ icescrum_install_dir }}"
+
+{% if icescrum_mail_enabled %}
+// Mail server
+grails.mail.host = "{{ icescrum_mail_host }}"
+grails.mail.port = {{ icescrum_mail_port }}
+grails.mail.username = "{{ icescrum_mail_username }}"
+grails.mail.password = "{{ icescrum_mail_password }}"
+{% if icescrum_mail_auth == 'SSL' %}
+grails.mail.props = ["mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory"]
+{% elif icescrum_mail_auth == 'TLS' %}
+grails.mail.props = ["mail.smtp.starttls.enable":"true"]
+{% else %}
+grails.mail.props = ["mail.smtp.auth":"false"]
+{% endif %}
+{% endif %}
