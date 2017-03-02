@@ -10,6 +10,7 @@
     path: "{{ icescrum_install_dir }}"
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
+    mode: 0775
     state: directory
 
 - name: Ensure log directory is present.
