@@ -51,5 +51,10 @@
         icescrum_config_groovy.changed or
         icescrum_server_xml.changed
 
+- name: Tomcat - Ensure tomcat service is started.
+  service:
+    name: tomcat7
+    state: started
+
 - name: Tomcat - Ensure tomcat port is listen.
   wait_for: host=localhost port={{ icescrum_port  | default(8080) }} delay=10 state=drained
