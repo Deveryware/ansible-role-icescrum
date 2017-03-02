@@ -5,21 +5,16 @@
 - name: Ensure icescrum user is present.
   user: name="{{ icescrum_user }}" group="{{ icescrum_group }}" state=present
 
-- name: Ensure icescrum directory is present.
+- name: Ensure icescrum directories are present.
   file:
-    path: "{{ icescrum_install_dir }}"
+    path: "{{ item }}"
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
     mode: 0775
     state: directory
-
-- name: Ensure log directory is present.
-  file:
-    path: "{{ icescrum_log_dir }}"
-    owner: "{{ icescrum_user }}"
-    group: "{{ icescrum_group }}"
-    mode: 0775
-    state: directory
+  with_items:
+  - "{{ icescrum_install_dir }}"
+  - "{{ icescrum_log_dir }}"
 
 - name: Ensure server ID file is present.
   copy:
