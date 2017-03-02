@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: Olivier Locard
-  description: Icescrum Installation
+  description: Icescrum Installation/Configuration
   company: "Deveryware"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.9
@@ -18,3 +18,4 @@ galaxy_info:
     - icescrum
     - development
     - scrum
+    - agile
