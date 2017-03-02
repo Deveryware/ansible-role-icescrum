@@ -3,6 +3,7 @@ icescrum_jar_url: 'https://www.icescrum.com/downloads/icescrum.jar'
 icescrum_war_url: 'https://www.icescrum.com/downloads/icescrum.war'
 icescrum_install_dir: '/opt/icescrum'
 icescrum_log_dir: '/var/log/icescrum'
+icescrum_create_default_admin: 'true'
 
 icescrum_user: 'icescrum'
 icescrum_group: "{{ icescrum_user }}"

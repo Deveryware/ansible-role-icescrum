@@ -8,9 +8,9 @@
 
 ## Usage
 
-    http://<server>
+    http://<server>:8080/icescrum
 
-Initial credentials are `admin/admin`
+Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ## Example Playbook
 
@@ -23,6 +23,8 @@ Initial credentials are `admin/admin`
         icescrum_db_password: 'oloc4ever'
 
 ## Main variables
+
+**icescrum_create_default_admin**: 'true' or 'false'. False provide a setup wizard.
 
 **icescrum_appID**: Add server ID file named _appID.txt_
 

@@ -1,6 +1,8 @@
 // {{ ansible_managed }}
 // https://www.icescrum.com/documentation/config-groovy-file/
 
+icescrum.createDefaultAdmin = {{ icescrum_create_default_admin }}
+
 // Data Source
 dataSource.dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 dataSource.driverClassName = "com.mysql.jdbc.Driver"
