@@ -4,8 +4,7 @@
     encoding: utf8
     collation: utf8_general_ci
     state: present
-  register: db_created
- 
+
 - name: Mysql - Ensure icescrum db user is present.
   mysql_user:
     name: "{{ icescrum_db_user }}"
