@@ -40,9 +40,9 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ## Mail variables
 
-To enable mail settings, turn `icescrum_mail_enabled` into `True` and override with your own settings:
+To enable mail settings, turn `icescrum_mail_enable` into `True` and override with your own settings:
 
-    icescrum_mail_enabled: True
+    icescrum_mail_enable: True
     icescrum_mail_host: "smtp.company.com"
     icescrum_mail_port: 465
     icescrum_mail_username: "username@company.com"
