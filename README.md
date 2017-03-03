@@ -51,6 +51,26 @@ To enable mail settings, turn `icescrum_mail_enable` into `True` and override wi
 
 **icescrum_mail_auth**: '', 'TLS', or 'SSL'
 
+## LDAP variables
+
+To enable LDAP configuration, put your own settings:
+
+    icescrum_ldap_enable: True
+    icescrum_ldap_server: 'ldaps://ldap.company.com:636'
+    icescrum_ldap_manager_dn: 'cn=admin,dc=company,dc=com'
+    icescrum_ldap_manager_password: 'ThouShallNotPass'
+
+You can override the default settings below:
+
+    icescrum_ldap_search_base: ''
+    icescrum_ldap_search_filter: '(uid={0})'
+    icescrum_ldap_search_subtree: 'true'
+    icescrum_ldap_attribute_first_name: 'givenName'
+    icescrum_ldap_attribute_last_name: 'sn'
+    icescrum_ldap_attribute_mail: 'mail'
+    icescrum_ldap_ignore_result_exception: 'false'
+    icescrum_anonymous_no_connection: 'false'
+
 ## License
 
 MIT

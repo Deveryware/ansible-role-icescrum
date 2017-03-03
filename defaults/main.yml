@@ -22,6 +22,8 @@ icescrum_tomcat_proxy_active: False
 icescrum_tomcat_proxy_server:
 icescrum_tomcat_proxy_port: "{{ icescrum_port }}"
 
+icescrum_ldap_enable: False
+
 icescrum_mail_enable: False
 icescrum_mail_host: "smtp.company.com"
 icescrum_mail_port: 465

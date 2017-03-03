@@ -33,3 +33,18 @@ grails.mail.props = ["mail.smtp.starttls.enable":"true"]
 grails.mail.props = ["mail.smtp.auth":"false"]
 {% endif %}
 {% endif %}
+
+{% if icescrum_ldap_enable %}
+grails.plugins.springsecurity.ldap.authorities.ignorePartialResultException = {{ icescrum_ldap_ignore_result_exception | default('false')}}
+grails.plugins.springsecurity.ldap.context.anonymousReadOnly = {{ icescrum_anonymous_no_connection | default('false') }}
+grails.plugins.springsecurity.ldap.context.managerDn = "{{ icescrum_ldap_manager_dn }}"
+grails.plugins.springsecurity.ldap.context.managerPassword = "{{ icescrum_ldap_manager_password }}"
+grails.plugins.springsecurity.ldap.context.server = "{{ icescrum_ldap_server }}"
+grails.plugins.springsecurity.ldap.search.base = "{{ icescrum_ldap_search_base | default('') }}"
+grails.plugins.springsecurity.ldap.search.filter = "{{ icescrum_ldap_search_filter | default('(uid={0})') }}"
+grails.plugins.springsecurity.ldap.search.searchSubtree = {{ icescrum_ldap_search_subtree| default('true') }}
+
+icescrum.ldap.mapper.emailAttributeName = "{{ icescrum_ldap_attribute_mail | default('mail') }}"
+icescrum.ldap.mapper.firstNameAttributeName = "{{ icescrum_ldap_attribute_first_name | default('givenName') }}"
+icescrum.ldap.mapper.lastNameAttributeName = "{{ icescrum_ldap_attribute_last_name | default('sn') }}"
+{% endif %}
