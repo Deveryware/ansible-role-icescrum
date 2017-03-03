@@ -35,5 +35,24 @@
 - include: installation_war.yml
 - include: tomcat.yml
 
+- name: Ensure license directory is present.
+  file:
+    path: "{{ icescrum_tomcat_home }}/.icescrum"
+    state: directory
+    mode: 0750
+    owner: "{{ icescrum_tomcat_user }}"
+    group: "{{ icescrum_group }}"
+
+- name: Ensure license key is set.
+  lineinfile:
+    dest: "{{ icescrum_tomcat_home }}/.icescrum/license.key"
+    line: "{{ icescrum_license_key }}"
+    state: present
+    create: yes
+    mode: 0640
+    owner: "{{ icescrum_tomcat_user }}"
+    group: "{{ icescrum_group }}"
+  when: icescrum_license_key is defined
+
 - name: Ensure icescrum is started.
   wait_for: path="{{ icescrum_log_dir }}/icescrum.log" delay=10 search_regex="Current version of Atmosphere"

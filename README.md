@@ -28,6 +28,8 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 **icescrum_appID**: Add server ID file named _appID.txt_
 
+**icescrum_license_key**: Add iceScrum Pro Key.
+
 **icescrum_scheme**: 'http' or 'https'
 
 **icescrum_server**: Complete _grails.serverURL_ with the _\<server\>_ name to set a specific site location.
