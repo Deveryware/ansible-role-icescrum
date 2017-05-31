@@ -44,12 +44,40 @@
     owner: "{{ icescrum_tomcat_user }}"
     state: link
 
+- name: Retrieve log files status.
+  stat:
+    path: "{{ icescrum_log_dir }}/{{ item }}"
+  with_items:
+    - 'icescrum.log'
+    - 'stacktrace.log'
+  register: icescrum_log_files
+
+- name: Ensure log files exist.
+  file:
+    path: "{{ icescrum_log_dir }}/{{ item.item }}"
+    state: touch
+  when: not item.stat.exists
+  with_items: "{{ icescrum_log_files.results }}"
+
+- name: Ensure log files are present.
+  file:
+    path: "{{ icescrum_log_dir }}/{{ item }}"
+    state: file
+    mode: 0644
+    owner: "{{ icescrum_tomcat_user }}"
+    group: "{{ icescrum_tomcat_user }}"
+  with_items:
+    - 'icescrum.log'
+    - 'stacktrace.log'
+  register: icescrum_log_files_presence
+
 - name: Tomcat - Restart if needed.
   service: name=tomcat7 state=restarted
   when: not icescrum_web.stat.exists or
         icescrum_setenv.changed or
         icescrum_config_groovy.changed or
-        icescrum_server_xml.changed
+        icescrum_server_xml.changed or
+        icescrum_log_files_presence.changed
 
 - name: Tomcat - Ensure tomcat service is started.
   service:
