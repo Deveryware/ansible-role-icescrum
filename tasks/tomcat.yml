@@ -40,7 +40,7 @@
 - name: Tomcat - Ensure icescrum is linked in tomcat.
   file:
     src: "{{ icescrum_install_dir }}"
-    dest: "{{ icescrum_tomcat_home }}/icescrum"
+    dest: "{{ icescrum_tomcat_home }}/{{ icescrum_context }}"
     owner: "{{ icescrum_tomcat_user }}"
     state: link
 

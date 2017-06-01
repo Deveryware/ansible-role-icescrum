@@ -8,7 +8,8 @@
 
 ## Usage
 
-    http://<server>:8080/icescrum
+    http://<server>:<port>/<context>
+    http://localhost:8080/icescrum
 
 Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
