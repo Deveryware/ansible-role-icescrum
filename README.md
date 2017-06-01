@@ -51,6 +51,13 @@ To enable mail settings, turn `icescrum_mail_enable` into `True` and override wi
 
 **icescrum_mail_auth**: '', 'TLS', or 'SSL'
 
+## Proxy server
+
+To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
+
+    icescrum_tomcat_proxy_server: icescrum.company.com
+    icescrum_tomcat_proxy_port: 443
+
 ## LDAP variables
 
 To enable LDAP configuration, put your own settings:
