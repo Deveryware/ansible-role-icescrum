@@ -35,6 +35,7 @@ grails.mail.props = ["mail.smtp.auth":"false"]
 {% endif %}
 
 {% if icescrum_ldap_enable %}
+grails.plugins.springsecurity.ldap.active = {{ icescrum_ldap_enable | lower }}
 grails.plugins.springsecurity.ldap.authorities.ignorePartialResultException = {{ icescrum_ldap_ignore_result_exception | default('false')}}
 grails.plugins.springsecurity.ldap.context.anonymousReadOnly = {{ icescrum_anonymous_no_connection | default('false') }}
 grails.plugins.springsecurity.ldap.context.managerDn = "{{ icescrum_ldap_manager_dn }}"
