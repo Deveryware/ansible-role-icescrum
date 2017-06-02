@@ -55,4 +55,4 @@
   when: icescrum_license_key is defined
 
 - name: Ensure icescrum is started.
-  wait_for: path="{{ icescrum_log_dir }}/icescrum.log" delay=10 search_regex="Current version of Atmosphere"
+  wait_for: path="{{ icescrum_log_dir }}/icescrum.log" delay=10 search_regex="Atmosphere Framework (.*) started"
