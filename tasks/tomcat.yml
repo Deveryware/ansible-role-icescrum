@@ -72,12 +72,15 @@
   register: icescrum_log_files_presence
 
 - name: Tomcat - Restart if needed.
-  service: name=tomcat7 state=restarted
+  service:
+    name: tomcat7
+    state: restarted
   when: not icescrum_web.stat.exists or
         icescrum_setenv.changed or
         icescrum_config_groovy.changed or
         icescrum_server_xml.changed or
         icescrum_log_files_presence.changed
+  register: icescrum_tomcat7_restart
 
 - name: Tomcat - Ensure tomcat service is started.
   service:
