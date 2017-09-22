@@ -31,9 +31,9 @@
     mode: 0640
   register: icescrum_config_groovy
 
-- include: mysql.yml
-- include: installation_war.yml
-- include: tomcat.yml
+- include_tasks: mysql.yml
+- include_tasks: installation_war.yml
+- include_tasks: tomcat.yml
 
 - name: Ensure license directory is present.
   file:
