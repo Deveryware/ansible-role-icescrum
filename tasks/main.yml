@@ -58,5 +58,5 @@
   register: icescrum_config_groovy
 
 - include_tasks: mysql.yml
-- include_tasks: installation_war.yml
+- include_tasks: "installation_{{ icescrum_installation }}.yml"
 - include_tasks: tomcat.yml

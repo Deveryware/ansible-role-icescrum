@@ -4,6 +4,9 @@ icescrum_install_dir: '/opt/icescrum'
 icescrum_log_dir: '/var/log/icescrum'
 icescrum_create_default_admin: 'true'
 
+# Values: war or jar
+icescrum_installation: 'war'
+
 icescrum_user: 'icescrum'
 icescrum_group: "{{ icescrum_user }}"
 icescrum_server: 'localhost'
