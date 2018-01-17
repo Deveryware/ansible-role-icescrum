@@ -1,9 +1,14 @@
 ---
 - name: Ensure icescrum group is present.
-  group: name="{{ icescrum_group }}" state=present
+  group:
+    name: "{{ icescrum_group }}"
+    state: present
 
 - name: Ensure icescrum user is present.
-  user: name="{{ icescrum_user }}" group="{{ icescrum_group }}" state=present
+  user:
+    name: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    state: present
 
 - name: Ensure icescrum directories are present.
   file:

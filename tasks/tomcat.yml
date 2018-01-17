@@ -1,5 +1,8 @@
 ---
-- getent: database="passwd" key="{{ icescrum_tomcat_user }}"
+- name: Tomcat - Retrieve Tomcat user informations.
+  getent:
+    database: "passwd"
+    key: "{{ icescrum_tomcat_user }}"
 
 - name: Tomcat - Retrieve icescrum_tomcat_home value.
   set_fact:
@@ -11,10 +14,14 @@
     state: absent
 
 - name: Tomcat - Retrieve icescrum group members.
-  getent: database=group key="{{ icescrum_group }}"
+  getent:
+    database: group
+    key: "{{ icescrum_group }}"
 
 - name: Tomcat - Ensure tomcat user is in the icescrum group.
-  user: name="{{ icescrum_tomcat_user }}" groups="{{ icescrum_group }}"
+  user:
+    name: "{{ icescrum_tomcat_user }}"
+    groups: "{{ icescrum_group }}"
   when: not icescrum_tomcat_user in getent_group['{{ icescrum_group }}'][2]
 
 - name: Tomcat - Ensure icescrum link into tomcat base is present.
@@ -24,16 +31,22 @@
     state: link
 
 - name: Tomcat - Ensure icescrum war is deployed.
-  stat: path="{{ icescrum_tomcat_base }}/webapps/icescrum/WEB-INF/web.xml"
+  stat:
+    path: "{{ icescrum_tomcat_base }}/webapps/icescrum/WEB-INF/web.xml"
   register: icescrum_web
 
 - name: Tomcat - Ensure setenv.sh is present.
-  template: src='setenv.sh.j2' dest="{{ icescrum_tomcat_home }}/bin/setenv.sh" mode=0755
+  template:
+    src: 'setenv.sh.j2'
+    dest: "{{ icescrum_tomcat_home }}/bin/setenv.sh"
+    mode: 0755
   when: icescrum_tomcat_configure
   register: icescrum_setenv
 
 - name: Tomcat - Ensure server.xml is present.
-  template: src='server.xml.j2' dest="{{ icescrum_tomcat_base }}/conf/server.xml"
+  template:
+    src: 'server.xml.j2'
+    dest: "{{ icescrum_tomcat_base }}/conf/server.xml"
   when: icescrum_tomcat_configure
   register: icescrum_server_xml
 
@@ -88,4 +101,8 @@
     state: started
 
 - name: Tomcat - Ensure tomcat port is listen.
-  wait_for: host=localhost port={{ icescrum_port  | default(8080) }} delay=10 state=drained
+  wait_for:
+    host: localhost
+    port: "{{ icescrum_port  | default(8080) }}"
+    delay: 10
+    state: drained

@@ -1,6 +1,7 @@
 ---
 - name: Installation war - Ensure icescrum.war is present.
-  stat: path="{{ icescrum_install_dir }}/icescrum.war"
+  stat:
+    path: "{{ icescrum_install_dir }}/icescrum.war"
   register: icescrum_war
 
 - name: Installation war - Download icescrum.war.

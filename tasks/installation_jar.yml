@@ -1,6 +1,7 @@
 ---
 - name: Ensure icescrum.jar is present.
-  stat: path="{{ icescrum_install_dir }}/icescrum.jar"
+  stat:
+    path: "{{ icescrum_install_dir }}/icescrum.jar"
   register: icescrum_jar
 
 - name: Ensure icescrum directory is present.
