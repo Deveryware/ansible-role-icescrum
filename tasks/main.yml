@@ -61,3 +61,8 @@
 - include_tasks: mysql.yml
 - include_tasks: "installation_{{ icescrum_installation }}.yml"
 - include_tasks: tomcat.yml
+  when: icescrum_installation == 'war'
+
+- name: Ensure icescrum is running.
+  shell: "java -Xmx512M -XX:MaxPermSize=256m -jar {{ icescrum_install_dir }}/icescrum.jar"
+  when: icescrum_installation == 'jar'
