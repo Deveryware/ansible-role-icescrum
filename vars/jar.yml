@@ -1,0 +1,4 @@
+---
+icescrum_license_home: "{{ icescrum_install_dir }}"
+icescrum_license_user: "{{ icescrum_user }}"
+
