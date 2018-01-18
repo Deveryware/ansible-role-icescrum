@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-* java 7
+* java 7, java 8 is recommended for Icescrum v7
 * Mysql
-* tomcat7
+* tomcat7, tomcat8 recommended for Icescrum v7
 
 ## Usage
 
@@ -24,6 +24,8 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
         icescrum_db_password: 'oloc4ever'
 
 ## Main variables
+
+**icescrum_version**: 'v6' or 'v7'.
 
 **icescrum_create_default_admin**: 'true' or 'false'. False provide a setup wizard.
 
