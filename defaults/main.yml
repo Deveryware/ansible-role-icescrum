@@ -18,6 +18,7 @@ icescrum_db_password: 'ic3scrum'
 
 icescrum_tomcat_user: 'tomcat7'
 icescrum_tomcat_base: '/var/lib/tomcat7'
+icescrum_tomcat_home: '/usr/share/tomcat7'
 icescrum_tomcat_configure: True
 icescrum_tomcat_proxy_active: False
 icescrum_tomcat_proxy_server:

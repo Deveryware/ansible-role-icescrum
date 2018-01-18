@@ -32,7 +32,7 @@
 - name: Ensure config.groovy is present.
   template:
     src: 'config.groovy.j2'
-    dest: "{{ icescrum_install_dir }}/config.groovy"
+    dest: "{{ icescrum_config_dir }}/config.groovy"
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
     mode: 0640
