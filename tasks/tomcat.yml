@@ -24,6 +24,15 @@
     groups: "{{ icescrum_group }}"
   when: not icescrum_tomcat_user in getent_group['{{ icescrum_group }}'][2]
 
+- name: Tomcat - Ensure Tomcat home ownership.
+  file:
+    path: "{{ icescrum_tomcat_home }}"
+    owner: "{{ icescrum_tomcat_user }}"
+    recurse: yes
+  with_items:
+  - "{{ icescrum_tomcat_home }}"
+  - "/usr/share/{{ icescrum_tomcat_user }}"
+
 - name: Tomcat - Ensure icescrum link into tomcat base is present.
   file:
     src: "{{ icescrum_install_dir }}/icescrum.war"
