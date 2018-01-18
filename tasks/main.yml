@@ -29,19 +29,6 @@
     content: "{{ icescrum_appID }}"
   when: icescrum_appID is defined
 
-- name: Ensure config.groovy is present.
-  template:
-    src: 'config.groovy.j2'
-    dest: "{{ icescrum_config_dir }}/config.groovy"
-    owner: "{{ icescrum_user }}"
-    group: "{{ icescrum_group }}"
-    mode: 0640
-  register: icescrum_config_groovy
-
-- include_tasks: mysql.yml
-- include_tasks: installation_war.yml
-- include_tasks: tomcat.yml
-
 - name: Ensure license directory is present.
   file:
     path: "{{ icescrum_tomcat_home }}/.icescrum"
@@ -60,6 +47,19 @@
     owner: "{{ icescrum_tomcat_user }}"
     group: "{{ icescrum_group }}"
   when: icescrum_license_key is defined
+
+- name: Ensure config.groovy is present.
+  template:
+    src: 'config.groovy.j2'
+    dest: "{{ icescrum_config_dir }}/config.groovy"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0640
+  register: icescrum_config_groovy
+
+- include_tasks: mysql.yml
+- include_tasks: installation_war.yml
+- include_tasks: tomcat.yml
 
 - name: Ensure icescrum is started.
   wait_for:
