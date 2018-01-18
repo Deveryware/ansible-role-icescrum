@@ -1,4 +1,6 @@
 ---
+- include_vars: "{{ icescrum_version }}.yml"
+
 - name: Ensure icescrum group is present.
   group:
     name: "{{ icescrum_group }}"
