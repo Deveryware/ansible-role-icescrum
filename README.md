@@ -54,14 +54,14 @@ To enable mail settings, turn `icescrum_mail_enable` into `True` and override wi
 
 **icescrum_mail_auth**: '', 'TLS', or 'SSL'
 
-## Proxy server
+## Proxy server
 
 To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
 
     icescrum_tomcat_proxy_server: icescrum.company.com
     icescrum_tomcat_proxy_port: 443
 
-## LDAP variables
+## LDAP variables
 
 To enable LDAP configuration, put your own settings:
 
@@ -81,7 +81,7 @@ You can override the default settings below:
     icescrum_ldap_ignore_result_exception: 'false'
     icescrum_anonymous_no_connection: 'false'
 
-## Project variables - Only for Icescrum v7
+## Project variables - Only for Icescrum v7
 
 You can override the default settings below:
 
@@ -91,7 +91,7 @@ You can override the default settings below:
     icescrum_project_private_default: 'false'
     icescrum_project_private_enable: 'true'
 
-## Users variables - Only for Icescrum v7
+## Users variables - Only for Icescrum v7
 
 You can override the default settings below:
 
@@ -101,7 +101,7 @@ You can override the default settings below:
     icescrum_login_retrieve_enable: 'true'
     icescrum_sessionTimeoutSeconds: 1800
 
-## Alerts variables - Only for Icescrum v7
+## Alerts variables - Only for Icescrum v7
 
 You can override the default settings below:
 
