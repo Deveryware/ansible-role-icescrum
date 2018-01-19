@@ -113,5 +113,4 @@
   wait_for:
     host: localhost
     port: "{{ icescrum_port  | default(8080) }}"
-    delay: 10
     state: drained
