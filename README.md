@@ -81,6 +81,35 @@ You can override the default settings below:
     icescrum_ldap_ignore_result_exception: 'false'
     icescrum_anonymous_no_connection: 'false'
 
+## Project variables - Only for Icescrum v7
+
+You can override the default settings below:
+
+    icescrum_project_creation_enable: 'true'
+    icescrum_project_export_enable: 'true'
+    icescrum_project_import_enable: 'true'
+    icescrum_project_private_default: 'false'
+    icescrum_project_private_enable: 'true'
+
+## Users variables - Only for Icescrum v7
+
+You can override the default settings below:
+
+    icescrum_gravatar_enable: 'false'
+    icescrum_registration_enable: 'true'
+    icescrum_invitation_enable: 'false'
+    icescrum_login_retrieve_enable: 'true'
+    icescrum_sessionTimeoutSeconds: 1800
+
+## Alerts variables - Only for Icescrum v7
+
+You can override the default settings below:
+
+    icescrum_alerts_enable: 'true'
+    icescrum_alerts_errors_to: "dev@icescrum.org"
+    icescrum_alerts_subject_prefix: "[icescrum]"
+    icescrum_alerts_default_from: "webmaster@icescrum.org"
+
 ## License
 
 MIT

@@ -12,7 +12,12 @@ dataSource.password = "{{icescrum_db_password}}"
 
 // Technical Setings
 // Server URL
+{% if icescrum_version == 'v6' %}
 grails.serverURL = "{{ icescrum_server_url }}"
+{%  endif %}
+{% if icescrum_version == 'v7' %}
+icescrum.serverURL="{{ icescrum_server_url }}"
+{%  endif %}
 // Logging
 icescrum.debug.enable = false
 icescrum.securitydebug.enable = false
@@ -48,4 +53,30 @@ grails.mail.props = ["mail.smtp.auth":"false"]
 icescrum.ldap.mapper.emailAttributeName = "{{ icescrum_ldap_attribute_mail | default('mail') }}"
 icescrum.ldap.mapper.firstNameAttributeName = "{{ icescrum_ldap_attribute_first_name | default('givenName') }}"
 icescrum.ldap.mapper.lastNameAttributeName = "{{ icescrum_ldap_attribute_last_name | default('sn') }}"
+{% endif %}
+
+{% if icescrum_version == 'v7' %}
+icescrum.log.dir = "{{ icescrum_log_dir }}"
+icescrum.registration.enable = false
+icescrum.reportUsage.enable = false
+
+//project
+icescrum.project.creation.enable = {{ icescrum_project_creation_enable | default('true') }}
+icescrum.project.export.enable = {{ icescrum_project_export_enable | default('true') }}
+icescrum.project.import.enable = {{ icescrum_project_import_enable | default('true') }}
+icescrum.project.private.default = {{ icescrum_project_private_default | default('false') }}
+icescrum.project.private.enable = {{ icescrum_project_private_enable | default('true') }}
+
+// Users
+icescrum.gravatar.enable = {{ icescrum_gravatar_enable | default('false') }}
+icescrum.registration.enable = {{ icescrum_registration_enable | default('true') }}
+icescrum.invitation.enable = {{ icescrum_invitation_enable | default('false') }}
+icescrum.login.retrieve.enable = {{ icescrum_login_retrieve_enable | default('true') }}
+icescrum.sessionTimeoutSeconds = {{ icescrum_sessionTimeoutSeconds | default(1800) }}
+
+// Alerts
+icescrum.alerts.enable = {{ icescrum_alerts_enable | default('true') }}
+icescrum.alerts.errors.to = {{ icescrum_alerts_errors_to | default('"dev@icescrum.org"') }}
+icescrum.alerts.subject_prefix = {{ icescrum_alerts_subject_prefix | default('"[icescrum]"') }}
+icescrum.alerts.default.from = {{ icescrum_alerts_default_from | default('"webmaster@icescrum.org"') }}
 {% endif %}
