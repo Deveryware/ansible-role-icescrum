@@ -1,6 +1,5 @@
 ---
-icescrum_jar_url: 'https://www.icescrum.com/downloads/icescrum.jar'
-icescrum_war_url: 'https://www.icescrum.com/downloads/icescrum.war'
+icescrum_version: 'v6'
 icescrum_install_dir: '/opt/icescrum'
 icescrum_log_dir: '/var/log/icescrum'
 icescrum_create_default_admin: 'true'
@@ -19,6 +18,7 @@ icescrum_db_password: 'ic3scrum'
 
 icescrum_tomcat_user: 'tomcat7'
 icescrum_tomcat_base: '/var/lib/tomcat7'
+icescrum_tomcat_home: '/usr/share/tomcat7'
 icescrum_tomcat_configure: True
 icescrum_tomcat_proxy_active: False
 icescrum_tomcat_proxy_server:

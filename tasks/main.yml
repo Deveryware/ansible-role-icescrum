@@ -1,4 +1,6 @@
 ---
+- include_vars: "{{ icescrum_version }}.yml"
+
 - name: Ensure icescrum group is present.
   group:
     name: "{{ icescrum_group }}"
@@ -27,19 +29,6 @@
     content: "{{ icescrum_appID }}"
   when: icescrum_appID is defined
 
-- name: Ensure config.groovy is present.
-  template:
-    src: 'config.groovy.j2'
-    dest: "{{ icescrum_install_dir }}/config.groovy"
-    owner: "{{ icescrum_user }}"
-    group: "{{ icescrum_group }}"
-    mode: 0640
-  register: icescrum_config_groovy
-
-- include_tasks: mysql.yml
-- include_tasks: installation_war.yml
-- include_tasks: tomcat.yml
-
 - name: Ensure license directory is present.
   file:
     path: "{{ icescrum_tomcat_home }}/.icescrum"
@@ -59,9 +48,15 @@
     group: "{{ icescrum_group }}"
   when: icescrum_license_key is defined
 
-- name: Ensure icescrum is started.
-  wait_for:
-    path: "{{ icescrum_log_dir }}/icescrum.log"
-    delay: 10
-    search_regex: "Atmosphere Framework (.*) started"
-  when: icescrum_tomcat7_restart.changed
+- name: Ensure config.groovy is present.
+  template:
+    src: 'config.groovy.j2'
+    dest: "{{ icescrum_config_dir }}/config.groovy"
+    owner: "{{ icescrum_tomcat_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0640
+  register: icescrum_config_groovy
+
+- include_tasks: mysql.yml
+- include_tasks: installation_war.yml
+- include_tasks: tomcat.yml

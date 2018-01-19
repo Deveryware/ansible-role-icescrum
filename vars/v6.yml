@@ -1,0 +1,7 @@
+---
+icescrum_jar_url: 'https://www.icescrum.com/downloads/icescrum.jar'
+icescrum_war_url: 'https://www.icescrum.com/downloads/icescrum.war'
+
+icescrum_config_dir : "{{ icescrum_install_dir }}"
+
+icescrum_springsecurity_prefix: 'grails.plugins.springsecurity'
