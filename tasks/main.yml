@@ -52,7 +52,7 @@
   template:
     src: 'config.groovy.j2'
     dest: "{{ icescrum_config_dir }}/config.groovy"
-    owner: "{{ icescrum_user }}"
+    owner: "{{ icescrum_tomcat_user }}"
     group: "{{ icescrum_group }}"
     mode: 0640
   register: icescrum_config_groovy
