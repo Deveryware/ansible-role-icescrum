@@ -1,3 +1,5 @@
 ---
 - name: restart tomcat
-  service: name=tomcat7 state=restarted
+  service:
+    name: "{{ icescrum_tomcat_name }}"
+    state: restarted

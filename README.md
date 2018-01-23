@@ -41,6 +41,8 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 **icescrum_db_password**: 'ic3scrum'
 
+**icescrum_tomcat_version**: '7'
+
 ## Mail variables
 
 To enable mail settings, turn `icescrum_mail_enable` into `True` and override with your own settings:
