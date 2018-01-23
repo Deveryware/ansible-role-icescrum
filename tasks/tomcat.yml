@@ -4,13 +4,13 @@
     database: "passwd"
     key: "{{ icescrum_tomcat_user }}"
 
-- name: Tomcat - Retrieve icescrum_tomcat_home value.
+- name: Tomcat - Retrieve icescrum_tomcat_catalina_base value.
   set_fact:
     icescrum_tomcat_home: "{{ getent_passwd[icescrum_tomcat_user][4] }}"
 
 - name: Tomcat - Ensure tomcat-jdbc.jar is absent (see https://www.icescrum.com/documentation/application-server/#application-server_1).
   file:
-    path: "{{ icescrum_tomcat_home }}/lib/tomcat-jdbc.jar"
+    path: "{{ icescrum_tomcat_catalina_base }}/lib/tomcat-jdbc.jar"
     state: absent
 
 - name: Tomcat - Retrieve icescrum group members.
@@ -26,28 +26,28 @@
 
 - name: Tomcat - Ensure Tomcat home ownership.
   file:
-    path: "{{ icescrum_tomcat_home }}"
+    path: "{{ item }}"
     owner: "{{ icescrum_tomcat_user }}"
     recurse: yes
   with_items:
-  - "{{ icescrum_tomcat_home }}"
-  - "/usr/share/{{ icescrum_tomcat_user }}"
+  - "{{ icescrum_tomcat_catalina_base }}"
+  - "{{ icescrum_tomcat_catalina_home }}"
 
 - name: Tomcat - Ensure icescrum link into tomcat base is present.
   file:
     src: "{{ icescrum_install_dir }}/icescrum.war"
-    dest: "{{ icescrum_tomcat_base }}/webapps/icescrum.war"
+    dest: "{{ icescrum_tomcat_catalina_base }}/webapps/icescrum.war"
     state: link
 
 - name: Tomcat - Ensure icescrum war is deployed.
   stat:
-    path: "{{ icescrum_tomcat_base }}/webapps/icescrum/WEB-INF/web.xml"
+    path: "{{ icescrum_tomcat_catalina_base }}/webapps/icescrum/WEB-INF/web.xml"
   register: icescrum_web
 
 - name: Tomcat - Ensure setenv.sh is present.
   template:
     src: 'setenv.sh.j2'
-    dest: "{{ icescrum_tomcat_home }}/bin/setenv.sh"
+    dest: "{{ icescrum_tomcat_catalina_home }}/bin/setenv.sh"
     mode: 0755
   when: icescrum_tomcat_configure
   register: icescrum_setenv
@@ -55,14 +55,14 @@
 - name: Tomcat - Ensure server.xml is present.
   template:
     src: 'server.xml.j2'
-    dest: "{{ icescrum_tomcat_base }}/conf/server.xml"
+    dest: "{{ icescrum_tomcat_catalina_base }}/conf/server.xml"
   when: icescrum_tomcat_configure
   register: icescrum_server_xml
 
 - name: Tomcat - Ensure icescrum is linked in tomcat.
   file:
     src: "{{ icescrum_install_dir }}"
-    dest: "{{ icescrum_tomcat_home }}/{{ icescrum_context }}"
+    dest: "{{ icescrum_tomcat_catalina_base }}/{{ icescrum_context }}"
     owner: "{{ icescrum_tomcat_user }}"
     state: link
 

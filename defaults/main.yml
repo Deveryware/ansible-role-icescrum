@@ -19,8 +19,8 @@ icescrum_db_password: 'ic3scrum'
 icescrum_tomcat_version: '7'
 icescrum_tomcat_name: "tomcat{{ icescrum_tomcat_version }}"
 icescrum_tomcat_user: "{{ icescrum_tomcat_name }}"
-icescrum_tomcat_base: "/var/lib/{{ icescrum_tomcat_name }}"
-icescrum_tomcat_home: "/usr/share/{{ icescrum_tomcat_name }}"
+icescrum_tomcat_catalina_home: "/usr/share/{{ icescrum_tomcat_name }}"
+icescrum_tomcat_catalina_base: "/var/lib/{{ icescrum_tomcat_name }}"
 icescrum_tomcat_configure: True
 icescrum_tomcat_proxy_active: False
 icescrum_tomcat_proxy_server:
