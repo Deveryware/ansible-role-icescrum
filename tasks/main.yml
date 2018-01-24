@@ -31,7 +31,7 @@
 
 - name: Ensure license directory is present.
   file:
-    path: "{{ icescrum_tomcat_home }}/.icescrum"
+    path: "{{ icescrum_tomcat_catalina_home }}/.icescrum"
     state: directory
     mode: 0750
     owner: "{{ icescrum_tomcat_user }}"
@@ -39,7 +39,7 @@
 
 - name: Ensure license key is set.
   lineinfile:
-    dest: "{{ icescrum_tomcat_home }}/.icescrum/license.key"
+    dest: "{{ icescrum_tomcat_catalina_home }}/.icescrum/license.key"
     line: "{{ icescrum_license_key }}"
     state: present
     create: yes

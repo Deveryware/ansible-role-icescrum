@@ -1,13 +1,4 @@
 ---
-- name: Tomcat - Retrieve Tomcat user informations.
-  getent:
-    database: "passwd"
-    key: "{{ icescrum_tomcat_user }}"
-
-- name: Tomcat - Retrieve icescrum_tomcat_catalina_base value.
-  set_fact:
-    icescrum_tomcat_home: "{{ getent_passwd[icescrum_tomcat_user][4] }}"
-
 - name: Tomcat - Ensure tomcat-jdbc.jar is absent (see https://www.icescrum.com/documentation/application-server/#application-server_1).
   file:
     path: "{{ icescrum_tomcat_catalina_base }}/lib/tomcat-jdbc.jar"
