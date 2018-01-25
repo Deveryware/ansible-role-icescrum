@@ -8,7 +8,7 @@
   get_url:
     url: "{{ icescrum_war_url }}"
     dest: "{{ icescrum_install_dir }}/icescrum.war"
-    mode: 0440
+    mode: 0550
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
   when: icescrum_war.stat.exists == false

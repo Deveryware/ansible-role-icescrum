@@ -24,10 +24,13 @@
   - "{{ icescrum_tomcat_catalina_base }}"
   - "{{ icescrum_tomcat_catalina_home }}"
 
-- name: Tomcat - Ensure icescrum link into tomcat base is present.
+- name: Tomcat - Ensure icescrum link into Catalina base is present.
   file:
     src: "{{ icescrum_install_dir }}/icescrum.war"
     dest: "{{ icescrum_tomcat_catalina_base }}/webapps/icescrum.war"
+    owner: "{{ icescrum_tomcat_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0550
     state: link
 
 - name: Tomcat - Ensure icescrum war is deployed.
@@ -47,6 +50,7 @@
   template:
     src: 'server.xml.j2'
     dest: "{{ icescrum_tomcat_catalina_base }}/conf/server.xml"
+    backup: yes
   when: icescrum_tomcat_configure
   register: icescrum_server_xml
 
