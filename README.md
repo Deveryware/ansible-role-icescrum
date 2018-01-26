@@ -25,7 +25,9 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ## Main variables
 
-**icescrum_version**: 'v6' or 'v7'.
+**icescrum_version**: 'v7' [or the previous 'v6'].
+
+**icescrum_tomcat_version**: '8' [or the previous '7']
 
 **icescrum_create_default_admin**: 'true' or 'false'. False provide a setup wizard.
 
@@ -41,7 +43,6 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 **icescrum_db_password**: 'ic3scrum'
 
-**icescrum_tomcat_version**: '7'
 
 ## Mail variables
 
@@ -83,7 +84,9 @@ You can override the default settings below:
     icescrum_ldap_ignore_result_exception: 'false'
     icescrum_anonymous_no_connection: 'false'
 
-## Project variables - Only for Icescrum v7
+## Project variables
+
+_Not available in Icescrum v6._
 
 You can override the default settings below:
 
@@ -93,7 +96,9 @@ You can override the default settings below:
     icescrum_project_private_default: 'false'
     icescrum_project_private_enable: 'true'
 
-## Users variables - Only for Icescrum v7
+## Users variables
+
+_Not available in Icescrum v6._
 
 You can override the default settings below:
 
@@ -103,7 +108,9 @@ You can override the default settings below:
     icescrum_login_retrieve_enable: 'true'
     icescrum_sessionTimeoutSeconds: 1800
 
-## Alerts variables - Only for Icescrum v7
+## Alerts variables
+
+_Not available in Icescrum v6._
 
 You can override the default settings below:
 
