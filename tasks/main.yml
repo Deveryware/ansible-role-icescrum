@@ -31,20 +31,20 @@
 
 - name: Ensure license directory is present.
   file:
-    path: "{{ icescrum_tomcat_catalina_home }}/.icescrum"
+    path: "{{ icescrum_install_dir }}/.icescrum"
     state: directory
     mode: 0750
-    owner: "{{ icescrum_tomcat_user }}"
+    owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
 
 - name: Ensure license key is set.
   lineinfile:
-    dest: "{{ icescrum_tomcat_catalina_home }}/.icescrum/license.key"
+    dest: "{{ icescrum_install_dir }}/.icescrum/license.key"
     line: "{{ icescrum_license_key }}"
     state: present
     create: yes
     mode: 0640
-    owner: "{{ icescrum_tomcat_user }}"
+    owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
   when: icescrum_license_key is defined
 
@@ -52,7 +52,7 @@
   template:
     src: 'config.groovy.j2'
     dest: "{{ icescrum_config_dir }}/config.groovy"
-    owner: "{{ icescrum_tomcat_user }}"
+    owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
     mode: 0640
   register: icescrum_config_groovy

@@ -2,6 +2,6 @@
 icescrum_jar_url: 'https://www.icescrum.com/downloads/v7/icescrum.jar'
 icescrum_war_url: 'https://www.icescrum.com/downloads/v7/icescrum.war'
 
-icescrum_config_dir: "{{ icescrum_tomcat_catalina_home }}/.icescrum"
+icescrum_config_dir: "{{ icescrum_install_dir }}/.icescrum"
 
 icescrum_springsecurity_prefix: 'grails.plugin.springsecurity'
