@@ -54,7 +54,7 @@
     dest: "{{ icescrum_config_dir }}/config.groovy"
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
-    mode: 0640
+    mode: 0660
   register: icescrum_config_groovy
 
 - include_tasks: mysql.yml
