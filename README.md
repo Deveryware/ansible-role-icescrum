@@ -1,5 +1,23 @@
 # Ansible Role Icescrum
 
+This Ansible role installs and configures Icescrum (Official website: https://www.icescrum.com/).
+
+## Table of contents
+* [Prerequisites](#Prerequisites)
+* [Usage](#Usage)
+* [Example Playbook](#Example-Playbook)
+* [Main variables](#Main-variables)
+	* [Mandatory](#Mandatory)
+	* [Recommended](#Recommended)
+	* [Optionnal](#Optionnal)
+* [Mail variables](#Mail-variables)
+* [Proxy server](#Proxy-server)
+* [LDAP variables](#LDAP-variables)
+* [Project variables](#Project-variables)
+* [Users variables](#Users-variables)
+* [Alerts variables](#Alerts-variables)
+* [Catalina options](#Catalina-options)
+
 ## Prerequisites
 
 * java 7, java 8 is recommended for Icescrum v7
@@ -25,7 +43,7 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ## Main variables
 
-### Mandatory
+### Mandatory
 
     icescrum_appID: Add server ID file named _appID.txt_
     icescrum_license_key: Add iceScrum Pro Key.
@@ -118,7 +136,7 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
-## Catalina options
+## Catalina options
 
 _Only for tomcat installation_
 
