@@ -32,13 +32,13 @@
     groups: "{{ icescrum_group }}"
   when: not icescrum_tomcat_user in getent_group['{{ icescrum_group }}'][2]
 
-- name: Tomcat - Ensure Tomcat home ownership.
+- name: Tomcat - Ensure Catalina home and webapps ownership.
   file:
     path: "{{ item }}"
     owner: "{{ icescrum_tomcat_user }}"
     recurse: yes
   with_items:
-  - "{{ icescrum_tomcat_catalina_base }}"
+  - "{{ icescrum_tomcat_catalina_base }}/webapps"
   - "{{ icescrum_tomcat_catalina_home }}"
 
 - name: Tomcat - Ensure icescrum link into Catalina base is present.
