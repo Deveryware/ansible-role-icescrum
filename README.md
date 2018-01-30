@@ -25,24 +25,23 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ## Main variables
 
-**icescrum_version**: 'v7' [or the previous 'v6'].
+### Mandatory
 
-**icescrum_tomcat_version**: '8' [or the previous '7']
+    icescrum_appID: Add server ID file named _appID.txt_
+    icescrum_license_key: Add iceScrum Pro Key.
+    icescrum_server: Complete _grails.serverURL_ with the _\<server\>_ name to set a specific site location.
 
-**icescrum_create_default_admin**: 'true' or 'false'. False provide a setup wizard.
+### Recommended
 
-**icescrum_appID**: Add server ID file named _appID.txt_
+    icescrum_db_password: 'ic3scrum'
 
-**icescrum_license_key**: Add iceScrum Pro Key.
+### Optionnal
 
-**icescrum_scheme**: 'http' or 'https'
-
-**icescrum_server**: Complete _grails.serverURL_ with the _\<server\>_ name to set a specific site location.
-
-**icescrum_db_user**: 'icescrum'
-
-**icescrum_db_password**: 'ic3scrum'
-
+    icescrum_version: 'v7' [or the previous 'v6'].
+    icescrum_tomcat_version: '8' [or the previous '7']
+    icescrum_create_default_admin: 'true' or 'false'. False provide a setup wizard.
+    icescrum_scheme: 'http' or 'https'
+    icescrum_db_user: 'icescrum'
 
 ## Mail variables
 
