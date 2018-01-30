@@ -2,6 +2,12 @@
 # https://www.icescrum.com/documentation/application-server/#application-server_2
 #
 CATALINA_OPTS="$CATALINA_OPTS -Dicescrum.log.dir={{ icescrum_log_dir }}"
-CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone=UTC"
+CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone={{ icescrum_catalina_opts_timezone | default('UTC') }}"
 CATALINA_OPTS="$CATALINA_OPTS -Dicescrum_config_location={{ icescrum_install_dir }}/config.groovy"
-CATALINA_OPTS="$CATALINA_OPTS -Xmx512m -XX:MaxPermSize=256m"
+CATALINA_OPTS="$CATALINA_OPTS -Xmx{{ icescrum_catalina_opts_xmx }}"
+{% if icescrum_catalina_opts_xms is defined %}
+CATALINA_OPTS="$CATALINA_OPTS -Xms{{ icescrum_catalina_opts_xms }}"
+{% endif %}
+{% if icescrum_catalina_opts_maxpermsize is defined %}
+CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize={{ icescrum_catalina_opts_maxpermsize }}"
+{% endif %}
