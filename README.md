@@ -136,14 +136,14 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
-## Catalina options
+## Java options
 
-_Only for tomcat installation_
+_For jar arguments or Catalina options._
 
-    icescrum_catalina_opts_xmx: 1024m
-    icescrum_catalina_opts_xms: 512m (optionnal)
-    icescrum_catalina_opts_maxpermsize: 256m (optionnal)
-    icescrum_catalina_opts_timezone: 'UTC'
+    icescrum_xmx: 1024m
+    icescrum_xms: 512m (optionnal)
+    icescrum_maxpermsize: 256m (optionnal)
+    icescrum_timezone: 'UTC' (optionnal)
 
 ## License
 

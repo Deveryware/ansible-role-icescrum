@@ -29,7 +29,7 @@ icescrum_tomcat_proxy_active: False
 icescrum_tomcat_proxy_server:
 icescrum_tomcat_proxy_port: "{{ icescrum_port }}"
 
-icescrum_catalina_opts_xmx: '1024m'
+icescrum_xmx: '1024m'
 
 icescrum_ldap_enable: False
 
