@@ -61,6 +61,15 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
     icescrum_scheme: 'http' or 'https'
     icescrum_db_user: 'icescrum'
 
+## Java options
+
+_For jar arguments or Catalina options._
+
+    icescrum_xmx: 1024m
+    icescrum_xms: 512m (optionnal)
+    icescrum_maxpermsize: 256m (optionnal)
+    icescrum_timezone: 'UTC' (optionnal)
+
 ## Mail variables
 
 To enable mail settings, turn `icescrum_mail_enable` into `True` and override with your own settings:
@@ -135,15 +144,6 @@ You can override the default settings below:
     icescrum_alerts_errors_to: "dev@icescrum.org"
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
-
-## Java options
-
-_For jar arguments or Catalina options._
-
-    icescrum_xmx: 1024m
-    icescrum_xms: 512m (optionnal)
-    icescrum_maxpermsize: 256m (optionnal)
-    icescrum_timezone: 'UTC' (optionnal)
 
 ## License
 
