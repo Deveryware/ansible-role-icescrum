@@ -63,6 +63,5 @@
 - include_tasks: tomcat.yml
   when: icescrum_installation == 'war'
 
-- name: Ensure icescrum is running.
-  shell: "java -Xmx512M -XX:MaxPermSize=256m -jar {{ icescrum_install_dir }}/icescrum.jar"
+- include_tasks: systemd.yml
   when: icescrum_installation == 'jar'

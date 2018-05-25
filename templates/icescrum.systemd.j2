@@ -1,0 +1,11 @@
+[Unit]
+Description=Icescrum Service
+After=syslog.target
+
+[Service]
+Type=simple
+User={{ icescrum_user }}
+ExecStart=/usr/bin/java -Xmx{{ icescrum_xmx }}{% if icescrum_xms is defined %} -Xms{{ icescrum_xms }}{% endif %} -jar {{ icescrum_install_dir }}/icescrum.jar{% if icescrum_maxpermsize is defined %} -XX:MaxPermSize={{ icescrum_maxpermsize }}{% endif %} context={{ icescrum_context }}
+
+[Install]
+WantedBy=multi-user.target
