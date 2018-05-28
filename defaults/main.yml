@@ -9,11 +9,11 @@ icescrum_installation: 'war'
 
 icescrum_user: 'icescrum'
 icescrum_group: "{{ icescrum_user }}"
-icescrum_server: 'localhost'
+icescrum_host: 'localhost'
 icescrum_port: 8080
 icescrum_scheme: 'http'
 icescrum_context: 'icescrum'
-icescrum_server_url: "{{ icescrum_scheme }}://{{ icescrum_server }}:{{ icescrum_port }}/{{ icescrum_context }}"
+icescrum_server_url: "{{ icescrum_scheme }}://{{ icescrum_host }}:{{ icescrum_port }}/{{ icescrum_context }}"
 
 icescrum_db_name: 'icescrum'
 icescrum_db_user: 'icescrum'

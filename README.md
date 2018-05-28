@@ -26,7 +26,7 @@ This Ansible role installs and configures Icescrum (Official website: https://ww
 
 ## Usage
 
-    http://<server>:<port>/<context>
+    http://<host>:<port>/<context>
     http://localhost:8080/icescrum
 
 Initial credentials are `admin / adminadmin!` . Do not forget to change it!
@@ -38,7 +38,7 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
       - role: ansible-role-icescrum
         icescrum_appID: '726bafab-bcde-f1f2-abcd-f5e4d5c4b2a19'
         icescrum_scheme: 'https'
-        icescrum_server: 'icescrum.company.com'
+        icescrum_host: 'icescrum.company.com'
         icescrum_db_password: 'oloc4ever'
 
 ## Main variables
@@ -47,7 +47,7 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
     icescrum_appID: Add server ID file named _appID.txt_
     icescrum_license_key: Add iceScrum Pro Key.
-    icescrum_server: Complete _grails.serverURL_ with the _\<server\>_ name to set a specific site location.
+    icescrum_host: Complete _grails.serverURL_ with the _\<host\>_ name to set a specific site location.
 
 ### Recommended
 
@@ -111,6 +111,7 @@ You can override the default settings below:
     icescrum_anonymous_no_connection: 'false'
 
 ## Project variables
+
 
 _Not available in Icescrum v6._
 
