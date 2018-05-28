@@ -13,7 +13,7 @@ icescrum_host: 'localhost'
 icescrum_port: 8080
 icescrum_scheme: 'http'
 icescrum_context: 'icescrum'
-icescrum_server_url: "{{ icescrum_scheme }}://{{ icescrum_host }}:{{ icescrum_port }}/{{ icescrum_context }}"
+icescrum_url: "{{ icescrum_scheme }}://{{ icescrum_host }}:{{ icescrum_port }}/{{ icescrum_context }}/"
 
 icescrum_db_name: 'icescrum'
 icescrum_db_user: 'icescrum'
