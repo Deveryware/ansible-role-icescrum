@@ -56,9 +56,11 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 ### Optionnal
 
     icescrum_version: 'v7' [or the previous 'v6'].
+    icescrum_scheme: 'http' or 'https'
+    icescrum_port: '8080'
+    icescrum_context: 'icescrum'
     icescrum_tomcat_version: '8' [or the previous '7']
     icescrum_create_default_admin: 'true' or 'false'. False provide a setup wizard.
-    icescrum_scheme: 'http' or 'https'
     icescrum_db_user: 'icescrum'
 
 ## Java options
