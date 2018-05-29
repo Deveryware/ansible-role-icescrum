@@ -5,22 +5,22 @@ This Ansible role installs and configures Icescrum (Official website: https://ww
 By default this role installs the version V7 with a _jar_ setup. But you can choose the old version V6 (not recommanded) and/or a _war_ and tomcat setup.
 
 ## Table of contents
-* [Prerequisites](#Prerequisites)
-* [Usage](#Usage)
-* [Example Playbook](#Example-Playbook)
-* [Main variables](#Main-variables)
-	* [Mandatory](#Mandatory)
-	* [Recommended](#Recommended)
-	* [Optionnal](#Optionnal)
-* [Java options](#Java-options)
-* [Mail variables](#Mail-variables)
-* [LDAP variables](#LDAP-variables)
-* [Project variables](#Project-variables)
-* [Users variables](#Users-variables)
-* [Alerts variables](#Alerts-variables)
-* [War setup](#War-setup)
-	* [Tomcat version](#Tomcat-version)
-	* [Tomcat proxy server](#Tomcat-proxy-server)
+* [Prerequisites](#prerequisites)
+* [Usage](#usage)
+* [Example Playbook](#example-playbook)
+* [Main variables](#main-variables)
+	* [Mandatory](#mandatory)
+	* [Recommended](#recommended)
+	* [Optionnal](#optionnal)
+* [Java options](#java-options)
+* [Mail variables](#mail-variables)
+* [LDAP variables](#ldap-variables)
+* [Project variables](#project-variables)
+* [Users variables](#users-variables)
+* [Alerts variables](#alerts-variables)
+* [War setup](#war-setup)
+	* [Tomcat version](#tomcat-version)
+	* [Tomcat proxy server](#tomcat-proxy-server)
 
 ## Prerequisites
 
@@ -144,7 +144,7 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
-## War setup
+## War setup
 
 ### Tomcat version
 
