@@ -10,19 +10,19 @@ This Ansible role installs and configures Icescrum (Official website: https://ww
 	* [Mandatory](#Mandatory)
 	* [Recommended](#Recommended)
 	* [Optionnal](#Optionnal)
+* [Java options](#Java-options)
 * [Mail variables](#Mail-variables)
-* [Proxy server](#Proxy-server)
 * [LDAP variables](#LDAP-variables)
 * [Project variables](#Project-variables)
 * [Users variables](#Users-variables)
 * [Alerts variables](#Alerts-variables)
-* [Catalina options](#Catalina-options)
+* [Tomcat proxy server](#Tomcat-proxy-server)
 
 ## Prerequisites
 
 * java 7, java 8 is recommended for Icescrum v7
 * Mysql
-* tomcat7, tomcat8 recommended for Icescrum v7
+* tomcat7, tomcat8 recommended for Icescrum v7 (Only for a war installation)
 
 ## Usage
 
@@ -85,13 +85,6 @@ To enable mail settings, turn `icescrum_mail_enable` into `True` and override wi
 
 **icescrum_mail_auth**: '', 'TLS', or 'SSL'
 
-## Proxy server
-
-To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
-
-    icescrum_tomcat_proxy_server: icescrum.company.com
-    icescrum_tomcat_proxy_port: 443
-
 ## LDAP variables
 
 To enable LDAP configuration, put your own settings:
@@ -147,6 +140,13 @@ You can override the default settings below:
     icescrum_alerts_errors_to: "dev@icescrum.org"
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
+
+## Tomcat proxy server
+
+To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
+
+    icescrum_tomcat_proxy_server: icescrum.company.com
+    icescrum_tomcat_proxy_port: 443
 
 ## License
 
