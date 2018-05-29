@@ -12,3 +12,5 @@
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
   when: icescrum_war.stat.exists == false
+
+- include_tasks: tomcat.yml

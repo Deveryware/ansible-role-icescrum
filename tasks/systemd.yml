@@ -1,0 +1,24 @@
+---
+- name: Systemd - Ensure service script is present.
+  become: true
+  template:
+    src:  "icescrum.systemd.j2"
+    dest: "/lib/systemd/system/icescrum.service"
+    owner: root
+    group: root
+    mode: 0755
+  register: systemd_service
+
+- name: Systemd - Ensure service is linked into /etc/systemd.
+  file:
+    src: "/lib/systemd/system/icescrum.service"
+    dest: "/etc/systemd/system/icescrum.service"
+    state: link
+
+- name: Systemd - Restart service if needed.
+  systemd:
+    name: "icescrum"
+    state: restarted
+    daemon_reload: true
+    enabled: true
+  when: systemd_service.changed

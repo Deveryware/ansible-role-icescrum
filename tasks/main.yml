@@ -1,5 +1,6 @@
 ---
 - include_vars: "{{ icescrum_version }}.yml"
+- include_vars: "{{ icescrum_installation }}.yml"
 
 - name: Ensure icescrum group is present.
   group:
@@ -10,6 +11,7 @@
   user:
     name: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
+    home: "{{ icescrum_install_dir }}"
     state: present
 
 - name: Ensure icescrum directories are present.
@@ -58,5 +60,9 @@
   register: icescrum_config_groovy
 
 - include_tasks: mysql.yml
-- include_tasks: installation_war.yml
+- include_tasks: "installation_{{ icescrum_installation }}.yml"
 - include_tasks: tomcat.yml
+  when: icescrum_installation == 'war'
+
+- include_tasks: systemd.yml
+  when: icescrum_installation == 'jar'

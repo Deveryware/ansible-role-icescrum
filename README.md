@@ -10,23 +10,23 @@ This Ansible role installs and configures Icescrum (Official website: https://ww
 	* [Mandatory](#Mandatory)
 	* [Recommended](#Recommended)
 	* [Optionnal](#Optionnal)
+* [Java options](#Java-options)
 * [Mail variables](#Mail-variables)
-* [Proxy server](#Proxy-server)
 * [LDAP variables](#LDAP-variables)
 * [Project variables](#Project-variables)
 * [Users variables](#Users-variables)
 * [Alerts variables](#Alerts-variables)
-* [Catalina options](#Catalina-options)
+* [Tomcat proxy server](#Tomcat-proxy-server)
 
 ## Prerequisites
 
 * java 7, java 8 is recommended for Icescrum v7
 * Mysql
-* tomcat7, tomcat8 recommended for Icescrum v7
+* tomcat7, tomcat8 recommended for Icescrum v7 (Only for a war installation)
 
 ## Usage
 
-    http://<server>:<port>/<context>
+    http://<host>:<port>/<context>
     http://localhost:8080/icescrum
 
 Initial credentials are `admin / adminadmin!` . Do not forget to change it!
@@ -38,7 +38,7 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
       - role: ansible-role-icescrum
         icescrum_appID: '726bafab-bcde-f1f2-abcd-f5e4d5c4b2a19'
         icescrum_scheme: 'https'
-        icescrum_server: 'icescrum.company.com'
+        icescrum_host: 'icescrum.company.com'
         icescrum_db_password: 'oloc4ever'
 
 ## Main variables
@@ -47,7 +47,7 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
     icescrum_appID: Add server ID file named _appID.txt_
     icescrum_license_key: Add iceScrum Pro Key.
-    icescrum_server: Complete _grails.serverURL_ with the _\<server\>_ name to set a specific site location.
+    icescrum_host: Complete _grails.serverURL_ with the _\<host\>_ name to set a specific site location.
 
 ### Recommended
 
@@ -56,10 +56,21 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 ### Optionnal
 
     icescrum_version: 'v7' [or the previous 'v6'].
+    icescrum_scheme: 'http' or 'https'
+    icescrum_port: '8080'
+    icescrum_context: 'icescrum'
     icescrum_tomcat_version: '8' [or the previous '7']
     icescrum_create_default_admin: 'true' or 'false'. False provide a setup wizard.
-    icescrum_scheme: 'http' or 'https'
     icescrum_db_user: 'icescrum'
+
+## Java options
+
+_For jar arguments or Catalina options._
+
+    icescrum_xmx: 1024m
+    icescrum_xms: 512m (optionnal)
+    icescrum_maxpermsize: 256m (optionnal)
+    icescrum_timezone: 'UTC' (optionnal)
 
 ## Mail variables
 
@@ -73,13 +84,6 @@ To enable mail settings, turn `icescrum_mail_enable` into `True` and override wi
     icescrum_mail_auth: ''
 
 **icescrum_mail_auth**: '', 'TLS', or 'SSL'
-
-## Proxy server
-
-To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
-
-    icescrum_tomcat_proxy_server: icescrum.company.com
-    icescrum_tomcat_proxy_port: 443
 
 ## LDAP variables
 
@@ -102,6 +106,7 @@ You can override the default settings below:
     icescrum_anonymous_no_connection: 'false'
 
 ## Project variables
+
 
 _Not available in Icescrum v6._
 
@@ -136,14 +141,12 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
-## Catalina options
+## Tomcat proxy server
 
-_Only for tomcat installation_
+To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
 
-    icescrum_catalina_opts_xmx: 1024m
-    icescrum_catalina_opts_xms: 512m (optionnal)
-    icescrum_catalina_opts_maxpermsize: 256m (optionnal)
-    icescrum_catalina_opts_timezone: 'UTC'
+    icescrum_tomcat_proxy_server: icescrum.company.com
+    icescrum_tomcat_proxy_port: 443
 
 ## License
 

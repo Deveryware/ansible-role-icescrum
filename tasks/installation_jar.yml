@@ -22,5 +22,13 @@
     group: "{{ icescrum_group }}"
     recurse: yes
 
-- name: Ensure icescrum is running.
-  shell: "java -Xmx512M -XX:MaxPermSize=256m -jar {{ icescrum_install_dir }}/icescrum.jar"
+- name: Ensure temporary directories are present.
+  file:
+    path: "/tmp/{{ item }}"
+    owner: "{{ icescrum_user }}"
+    group: "{{ icescrum_group }}"
+    mode: 0755
+    state: directory
+  with_items:
+  - icescrum-tomcat
+  - standalone-war

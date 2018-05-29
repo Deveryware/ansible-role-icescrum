@@ -13,10 +13,10 @@ dataSource.password = "{{icescrum_db_password}}"
 // Technical Setings
 // Server URL
 {% if icescrum_version == 'v6' %}
-grails.serverURL = "{{ icescrum_server_url }}"
+grails.serverURL = "{{ icescrum_url }}"
 {%  endif %}
 {% if icescrum_version == 'v7' %}
-icescrum.serverURL="{{ icescrum_server_url }}"
+icescrum.serverURL="{{ icescrum_url }}"
 {%  endif %}
 // Logging
 icescrum.debug.enable = false
