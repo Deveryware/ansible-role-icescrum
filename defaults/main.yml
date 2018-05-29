@@ -5,7 +5,7 @@ icescrum_log_dir: '/var/log/icescrum'
 icescrum_create_default_admin: 'true'
 
 # Values: war or jar
-icescrum_installation: 'war'
+icescrum_installation: 'jar'
 
 icescrum_user: 'icescrum'
 icescrum_group: "{{ icescrum_user }}"
@@ -19,16 +19,6 @@ icescrum_db_name: 'icescrum'
 icescrum_db_user: 'icescrum'
 icescrum_db_password: 'ic3scrum'
 
-icescrum_tomcat_version: '8'
-icescrum_tomcat_name: "tomcat{{ icescrum_tomcat_version }}"
-icescrum_tomcat_user: "{{ icescrum_tomcat_name }}"
-icescrum_tomcat_catalina_home: "/usr/share/{{ icescrum_tomcat_name }}"
-icescrum_tomcat_catalina_base: "/var/lib/{{ icescrum_tomcat_name }}"
-icescrum_tomcat_configure: True
-icescrum_tomcat_proxy_active: False
-icescrum_tomcat_proxy_server:
-icescrum_tomcat_proxy_port: "{{ icescrum_port }}"
-
 icescrum_xmx: '1024m'
 
 icescrum_ldap_enable: False
@@ -39,3 +29,13 @@ icescrum_mail_port: 465
 icescrum_mail_username: "username@company.com"
 icescrum_mail_password: "mypassword"
 icescrum_mail_auth: ''
+
+icescrum_tomcat_version: '8'
+icescrum_tomcat_name: "tomcat{{ icescrum_tomcat_version }}"
+icescrum_tomcat_user: "{{ icescrum_tomcat_name }}"
+icescrum_tomcat_catalina_home: "/usr/share/{{ icescrum_tomcat_name }}"
+icescrum_tomcat_catalina_base: "/var/lib/{{ icescrum_tomcat_name }}"
+icescrum_tomcat_configure: True
+icescrum_tomcat_proxy_active: False
+icescrum_tomcat_proxy_server:
+icescrum_tomcat_proxy_port: "{{ icescrum_port }}"

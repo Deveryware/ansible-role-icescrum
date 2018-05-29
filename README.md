@@ -2,6 +2,8 @@
 
 This Ansible role installs and configures Icescrum (Official website: https://www.icescrum.com/).
 
+By default this role installs the version V7 with a _jar_ setup. But you can choose the old version V6 (not recommanded) and/or a _war_ and tomcat setup.
+
 ## Table of contents
 * [Prerequisites](#Prerequisites)
 * [Usage](#Usage)
@@ -16,7 +18,9 @@ This Ansible role installs and configures Icescrum (Official website: https://ww
 * [Project variables](#Project-variables)
 * [Users variables](#Users-variables)
 * [Alerts variables](#Alerts-variables)
-* [Tomcat proxy server](#Tomcat-proxy-server)
+* [War setup](#War-setup)
+	* [Tomcat version](#Tomcat-version)
+	* [Tomcat proxy server](#Tomcat-proxy-server)
 
 ## Prerequisites
 
@@ -55,13 +59,12 @@ Initial credentials are `admin / adminadmin!` . Do not forget to change it!
 
 ### Optionnal
 
-    icescrum_version: 'v7' [or the previous 'v6'].
     icescrum_scheme: 'http' or 'https'
     icescrum_port: '8080'
     icescrum_context: 'icescrum'
-    icescrum_tomcat_version: '8' [or the previous '7']
     icescrum_create_default_admin: 'true' or 'false'. False provide a setup wizard.
     icescrum_db_user: 'icescrum'
+    icescrum_version: 'v7' [or the previous 'v6'].
 
 ## Java options
 
@@ -141,7 +144,15 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
-## Tomcat proxy server
+## War setup
+
+### Tomcat version
+
+There are some differences between tomcat `server.xml` version 7 and 8. You need to setup this parameter to configure the right listener.
+
+    icescrum_tomcat_version: '8' [or the previous '7']
+
+### Tomcat proxy server
 
 To enable proxy settings, turn `icescrum_tomcat_proxy_active` int `True` and override with your own settings:
 
