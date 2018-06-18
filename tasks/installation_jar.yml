@@ -24,7 +24,7 @@
 
 - name: Ensure temporary directories are present.
   file:
-    path: "/tmp/{{ item }}"
+    path: "{{ icescrum_work_dir }}/{{ item }}"
     owner: "{{ icescrum_user }}"
     group: "{{ icescrum_group }}"
     mode: 0755

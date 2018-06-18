@@ -2,6 +2,7 @@
 icescrum_version: 'v7'
 icescrum_install_dir: '/opt/icescrum'
 icescrum_log_dir: '/var/log/icescrum'
+icescrum_work_dir: '/tmp'
 icescrum_create_default_admin: 'true'
 
 # Values: war or jar
