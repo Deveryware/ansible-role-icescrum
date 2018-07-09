@@ -78,5 +78,5 @@ icescrum.sessionTimeoutSeconds = {{ icescrum_sessionTimeoutSeconds | default(180
 icescrum.alerts.enable = {{ icescrum_alerts_enable | default('true') }}
 icescrum.alerts.errors.to = {{ icescrum_alerts_errors_to | default('"dev@icescrum.org"') }}
 icescrum.alerts.subject_prefix = {{ icescrum_alerts_subject_prefix | default('"[icescrum]"') }}
-icescrum.alerts.default.from = {{ icescrum_alerts_default_from | default('"webmaster@icescrum.org"') }}
+icescrum.alerts.default.from = "{{ icescrum_alerts_default_from | default('webmaster@icescrum.org') }}"
 {% endif %}
