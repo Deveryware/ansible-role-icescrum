@@ -11,3 +11,6 @@ CATALINA_OPTS="$CATALINA_OPTS -Xms{{ icescrum_xms }}"
 {% if icescrum_catalina_opts_maxpermsize is defined %}
 CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize={{ icescrum_maxpermsize }}"
 {% endif %}
+{% if icescrum_java_extra_args is defined %}
+CATALINA_OPTS="$CATALINA_OPTS {{ icescrum_java_extra_args }}"
+{% endif %}

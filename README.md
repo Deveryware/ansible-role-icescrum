@@ -75,6 +75,7 @@ _For jar arguments or Catalina options._
     icescrum_xms: 512m (optionnal)
     icescrum_maxpermsize: 256m (optionnal)
     icescrum_timezone: 'UTC' (optionnal)
+    icescrum_java_extra_args: '-Dfoo=bar' (optionnal)
 
 ## Mail variables
 

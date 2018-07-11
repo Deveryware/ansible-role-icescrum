@@ -5,7 +5,7 @@ After=syslog.target
 [Service]
 Type=simple
 User={{ icescrum_user }}
-ExecStart=/usr/bin/java -Xmx{{ icescrum_xmx }}{% if icescrum_xms is defined %} -Xms{{ icescrum_xms }}{% endif %} -jar {{ icescrum_install_dir }}/icescrum.jar{%  if icescrum_maxpermsize is defined %} -XX:MaxPermSize={{ icescrum_maxpermsize }}{% endif %}{% if icescrum_scheme == 'https' %} httpsProxy=true{% endif %} host={{ icescrum_host }} port={{ icescrum_port }} context={{ icescrum_context }} workDir={{ icescrum_work_dir }}
+ExecStart=/usr/bin/java -Xmx{{ icescrum_xmx }}{% if icescrum_xms is defined %} -Xms{{ icescrum_xms }}{% endif %}{% if icescrum_java_extra_args is defined %} {{ icescrum_java_extra_args }}{% endif %} -jar {{ icescrum_install_dir }}/icescrum.jar{%  if icescrum_maxpermsize is defined %} -XX:MaxPermSize={{ icescrum_maxpermsize }}{% endif %}{% if icescrum_scheme == 'https' %} httpsProxy=true{% endif %} host={{ icescrum_host }} port={{ icescrum_port }} context={{ icescrum_context }} workDir={{ icescrum_work_dir }}
 
 [Install]
 WantedBy=multi-user.target
