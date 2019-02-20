@@ -2,7 +2,7 @@
 
 This Ansible role installs and configures Icescrum (Official website: https://www.icescrum.com/).
 
-By default this role installs the version V7 with a _jar_ setup. But you can choose the old version V6 (not recommanded) and/or a _war_ and tomcat setup.
+By default this role installs the version V7 with a _jar_ setup. But you can choose a _war_ and tomcat setup.
 
 ## Table of contents
 * [Prerequisites](#prerequisites)
@@ -24,9 +24,9 @@ By default this role installs the version V7 with a _jar_ setup. But you can cho
 
 ## Prerequisites
 
-* java 7, java 8 is recommended for Icescrum v7
+* java 8
 * Mysql
-* tomcat7, tomcat8 recommended for Icescrum v7 (Only for a war installation)
+* tomcat8 (Only for a war installation)
 
 ## Usage
 
@@ -112,9 +112,6 @@ You can override the default settings below:
 
 ## Project variables
 
-
-_Not available in Icescrum v6._
-
 You can override the default settings below:
 
     icescrum_project_creation_enable: 'true'
@@ -125,8 +122,6 @@ You can override the default settings below:
 
 ## Users variables
 
-_Not available in Icescrum v6._
-
 You can override the default settings below:
 
     icescrum_gravatar_enable: 'false'
@@ -136,8 +131,6 @@ You can override the default settings below:
     icescrum_sessionTimeoutSeconds: 1800
 
 ## Alerts variables
-
-_Not available in Icescrum v6._
 
 You can override the default settings below:
 
