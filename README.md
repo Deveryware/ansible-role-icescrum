@@ -139,6 +139,16 @@ You can override the default settings below:
     icescrum_alerts_subject_prefix: "[icescrum]"
     icescrum_alerts_default_from: "webmaster@icescrum.org"
 
+## SystemD variables
+
+You can add Environment variables to the systemd daemon like this:
+
+    icescrum_env_vars:
+      - key: 'HTTP_PROXY'
+        value: 'http://company.com:3128'
+      - key: 'NO_PROXY'
+        value: 'localhost'
+
 ## War setup
 
 ### Tomcat version
