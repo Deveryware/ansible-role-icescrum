@@ -1,8 +1,8 @@
 - name: Mysql - Ensure database is created.
   mysql_db:
     name: "{{ icescrum_db_name }}"
-    encoding: utf8
-    collation: utf8_general_ci
+    encoding: utf8mb4
+    collation: utf8mb4_unicode_ci
     state: present
 
 - name: Mysql - Ensure icescrum db user is present.
