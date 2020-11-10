@@ -5,7 +5,19 @@ After=syslog.target
 [Service]
 Type=simple
 User={{ icescrum_user }}
+ExecStartPre=/bin/rm -rf {{ icescrum_install_dir }}/work
+{% if icescrum_extra_start_pre is defined %}
+{% for extra_start_pre in icescrum_extra_start_pre %}
+ExecStartPre={{ extra_start_pre }}
+{% endfor %}
+{% endif %}
 ExecStart=/usr/bin/java -Xmx{{ icescrum_xmx }}{% if icescrum_xms is defined %} -Xms{{ icescrum_xms }}{% endif %}{% if icescrum_java_extra_args is defined %} {{ icescrum_java_extra_args }}{% endif %} -jar {{ icescrum_install_dir }}/icescrum.jar{%  if icescrum_maxpermsize is defined %} -XX:MaxPermSize={{ icescrum_maxpermsize }}{% endif %}{% if icescrum_scheme == 'https' %} httpsProxy=true{% endif %} host={{ icescrum_host }} port={{ icescrum_port }} context={{ icescrum_context }} workDir={{ icescrum_work_dir }}
+ExecStopPost=/bin/rm -rf {{ icescrum_install_dir }}/work
+{% if icescrum_extra_stop_post is defined %}
+{% for extra_stop_post in icescrum_extra_stop_post %}
+ExecStopPost={{ extra_stop_post }}
+{% endfor %}
+{% endif %}
 {% if icescrum_env_vars is defined %}
 {% for kv in icescrum_env_vars %}
 Environment="{{ kv.key }}={{ kv.value }}"
