@@ -154,6 +154,11 @@ You can add some additionnal ExecStartPre commands :
     icescrum_extra_start_pre:
       - '/bin/rm -rf /opt/oloc/tmp'
 
+You can add some additionnal ExecStopPost commands :
+
+    icescrum_extra_stop_post:
+      - '/bin/rm -rf /opt/oloc/tmp'
+
 ## War setup
 
 ### Tomcat version
