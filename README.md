@@ -149,6 +149,11 @@ You can add Environment variables to the systemd daemon like this:
       - key: 'NO_PROXY'
         value: 'localhost'
 
+You can add some additionnal ExecStartPre commands :
+
+    icescrum_extra_start_pre:
+      - '/bin/rm -rf /opt/oloc/tmp'
+
 ## War setup
 
 ### Tomcat version
