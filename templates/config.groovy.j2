@@ -80,3 +80,16 @@ icescrum.alerts.errors.to = {{ icescrum_alerts_errors_to | default('"dev@icescru
 icescrum.alerts.subject_prefix = {{ icescrum_alerts_subject_prefix | default('"[icescrum]"') }}
 icescrum.alerts.default.from = "{{ icescrum_alerts_default_from | default('webmaster@icescrum.org') }}"
 {% endif %}
+{% if icescrum_extra_settings is defined %}
+
+// Extra Settings
+{% for extra in icescrum_extra_settings %}
+{% for key, value in extra.items() %}
+{% if value is string %}
+{{ key }} = "{{ value }}"
+{% else %}
+{{ key }} = {{ value }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}

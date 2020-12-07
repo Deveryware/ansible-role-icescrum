@@ -159,6 +159,15 @@ You can add some additionnal ExecStopPost commands :
     icescrum_extra_stop_post:
       - '/bin/rm -rf /opt/oloc/tmp'
 
+## Extra Settings
+
+You can add some custom extra settings with the `icescrum_extra_settings` variable:
+
+    icescrum_extra_settings:
+      - datasource.foo.bar: True
+      - grails.oloc: "Genius"
+      - icescrum.what.you.want: 0
+
 ## War setup
 
 ### Tomcat version
