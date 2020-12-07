@@ -85,7 +85,11 @@ icescrum.alerts.default.from = "{{ icescrum_alerts_default_from | default('webm
 // Extra Settings
 {% for extra in icescrum_extra_settings %}
 {% for key, value in extra.items() %}
+{% if value is string %}
+{{ key }} = "{{ value }}"
+{% else %}
 {{ key }} = {{ value }}
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif %}
